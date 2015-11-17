@@ -1,5 +1,5 @@
 =====
-Dajngo Model Hisotry
+Dajngo Model History
 =====
 
 The package is designed to track changes in object models. It has the ability to roll back changes to the object and attempt to restore an object if it has been deleted.
