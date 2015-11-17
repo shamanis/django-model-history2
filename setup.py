@@ -16,7 +16,7 @@ setup(
     url='https://github.com/shamanis/django-model-history',
     author='Petr Bondarenko',
     author_email='mdma.zone@gmail.com',
-    packages=find_packages('docs', 'tests'),
+    packages=find_packages(),
     keywords='models history revert objects',
     classifiers=[
         'Development Status :: 4 - Beta',
