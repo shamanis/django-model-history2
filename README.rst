@@ -24,11 +24,11 @@ Dajngo Model Hisotry
 
 4. Добавляем декоратор model_hisotry к классу Вашей модели:
 
-:python:`
+::
+
     from model_history.decorators import model_history
 
     @model_history()
     class SomeModel(models.Model):
         field_one = models.CharField()
         last_modified = models.DateTimeField()
-`
