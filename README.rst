@@ -9,24 +9,18 @@ Dajngo Model Hisotry
 =====
 0. Устанавливаем пакет:
 
-```
-pip install django-model-history
-```
+    pip install django-model-history
 
 1. Добавляем его в INSTALLED_APPS:
 
-```
-INSTALLED_APPS = (
-    ...
-    'model_history'
-)
-```
+    INSTALLED_APPS = (
+        ...
+        'model_history'
+    )
 
 3. Выполняем миграцию:
 
-```
-python manage.py migrate model_history
-```
+    python manage.py migrate model_history
 
 4. Добавляем декоратор model_hisotry к классу Вашей модели:
 
