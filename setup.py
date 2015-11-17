@@ -8,12 +8,12 @@ with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='django-model-history',
+    name='django-model-history2',
     version='0.9.0',
     description='Utility to track changes in object models',
     long_description=long_description,
     license='MIT',
-    url='https://github.com/shamanis/django-model-history',
+    url='https://github.com/shamanis/django-model-history2',
     author='Petr Bondarenko',
     author_email='mdma.zone@gmail.com',
     packages=find_packages(),

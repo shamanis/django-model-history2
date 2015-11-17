@@ -10,7 +10,7 @@ Dajngo Model Hisotry
 =====
 0. Устанавливаем пакет::
 
-    pip install django-model-history
+    pip install django-model-history2
 
 1. Добавляем его в INSTALLED_APPS::
 
