@@ -103,7 +103,7 @@ Settings
 =====
 Changelist
 =====
-1. 0.9.2
+1. 0.9.3:
 * Add ``track_created`` in ``MODEL_HISTORY_SETTINGS`` for tracking new object created. Default: False.
 * Add ``dispatch_uid`` for connected signals.
 * Model ``History`` small refactoring.
