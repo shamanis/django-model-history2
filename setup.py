@@ -13,6 +13,7 @@ setup(
     description='Utility to track changes in object models',
     long_description=long_description,
     license='MIT',
+    url='https://github.com/shamanis/django-model-history',
     author='Petr Bondarenko',
     author_email='mdma.zone@gmail.com',
     packages=find_packages('docs', 'tests'),
