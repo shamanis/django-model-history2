@@ -2,28 +2,28 @@
 Dajngo Model Hisotry
 =====
 
-The package is designed to track changes in object models. It has the ability to roll back changes to the object and attempt to restore an object if it has been deleted.
-If the change of the object were conducted script or from the console, the user field will be empty.
+Пакет предназначен для отслеживания изменений объектов моделей. Имеет возможность делать откат изменений объекта и попытку восстановить объект, если он был удален.
+Если изменение объекта были проведены скриптом или из консоли, то поле user будет пустым.
 
 =====
-Quick start
+Быстрый старт
 =====
-0. Install::
+0. Устанавливаем пакет::
 
     pip install django-model-history2
 
-1. Add in INSTALLED_APPS::
+1. Добавляем его в INSTALLED_APPS::
 
     INSTALLED_APPS = (
         ...
         'model_history'
     )
 
-3. Make migrate::
+3. Выполняем миграцию::
 
     python manage.py migrate model_history
 
-4. Add decorator model_hisotry to your Model class:
+4. Добавляем декоратор model_hisotry к классу Вашей модели:
 
 .. code-block:: python
 
@@ -36,32 +36,32 @@ Quick start
 
 
 =====
-Arguments for decorator model_history
+Параметры декоратора model_history
 =====
-1. ``exclude`` - Exclude fields. Default: []::
+1. ``exclude`` - Принимет список названий полей, которын не нужно отслеживать. По-умолчани []::
 
     @model_hisotry(exclude=['last_modified'])
 
-2. ``related`` - Track all related models. Default: False::
+2. ``related`` - Отслеживать все модели, которы ссылаются на текущую. По-умолчанию False::
 
     @model_history(exclude=['last_modified'], related=True)
 
-3. ``related_exclude`` - Exclude for related models. РџРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ []::
+3. ``related_exclude`` - Список, связанных моделей, которые надо исключить из отслеживания. По-умолчанию []::
 
     @model_history(exclude=['last_modified'], related=True, related_exclude=['myapp.models.Model2'])
 
 =====
-Settings
+Настройки в settings.py
 =====
-1. The settings are defined in the dictionary named ``MODEL_HISTORY_SETTINGS``::
+1. Настройки определяются в словаре с именем ``MODEL_HISTORY_SETTINGS``::
 
     MODEL_HISTORY_SETTINGS = {
         'connect': [
             {'model': 'django.contrib.auth.models.User', 'exclude': ['last_login'], 'related': True, 'related_exclude': ['django.contrib.admin.models.LogEntry']}
         ]
     }
-2. Models are listed in parameter ``connect`` will be put on track, with the specified parameters.
-3. ``delete_action`` - Should be in the admin interface function "delete selected objects". Default: False::
+2. Модели, перечисленные в параметре ``connect`` будут поставлены на отслеживание, с указанными параметрами
+3. ``delete_action`` - Должна ли в админке быть функция "удалить выбранные объекты". По-умолчанию False::
 
     MODEL_HISTORY_SETTINGS = {
         'delete_action': True
@@ -69,7 +69,7 @@ Settings
             {'model': 'django.contrib.auth.models.User', 'exclude': ['last_login'], 'related': True, 'related_exclude': ['django.contrib.admin.models.LogEntry']}
         ]
     }
-4. ``delete_permission`` - Which option is the user to check for compliance with the availability of the right to delete entries from the history::
+4. ``delete_permission`` - Какой параметр у пользователя праверять на соответствие наличия прав на удаление записей из истории::
 
     MODEL_HISTORY_SETTINGS = {
         'delete_action': True,
@@ -78,7 +78,7 @@ Settings
             {'model': 'django.contrib.auth.models.User', 'exclude': ['last_login'], 'related': True, 'related_exclude': ['django.contrib.admin.models.LogEntry']}
         ]
     }
-5. ``revert_action`` - Should be in the admin function "Revert". This function tries to make changes or cancellation recover a deleted object from the dump. Default: True::
+5. ``revert_action`` - Должна ли быть в админке функция "восстановить объект". Эта функция пытается сделать отсену изменений либо восстановить удаленный объект из дампа. По-умолчанию True::
 
     MODEL_HISTORY_SETTINGS = {
         'delete_action': True,
@@ -88,7 +88,7 @@ Settings
             {'model': 'django.contrib.auth.models.User', 'exclude': ['last_login'], 'related': True, 'related_exclude': ['django.contrib.admin.models.LogEntry']}
         ]
     }
-6. ``revert_permission`` - Which option is the user to check for compliance with the availability of rights to recovery facility::
+6. ``revert_permission`` - Какой параметр у пользователя праверять на соответствие наличия прав на восстановление объекта::
 
     MODEL_HISTORY_SETTINGS = {
         'delete_action': True,
