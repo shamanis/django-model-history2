@@ -9,7 +9,7 @@ with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='django-model-history2',
-    version='0.9.0',
+    version='0.9.2',
     description='Utility to track changes in object models',
     long_description=long_description,
     license='MIT',
@@ -26,8 +26,6 @@ setup(
         'Operating System :: OS Independent',
         'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Topic :: Software Development :: Libraries :: Python Modules'
+        'Topic :: Utilities',
     ]
 )
