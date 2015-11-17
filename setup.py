@@ -8,7 +8,7 @@ with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='Django model history',
+    name='django-model-history',
     version='0.9.0',
     description='Utility to track changes in object models',
     long_description=long_description,
