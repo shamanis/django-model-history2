@@ -1,7 +1,7 @@
 from django.core import serializers
 
 from .models import History
-
+from .settings import MODEL_HISTORY_SETTINGS
 
 def check_update_fields(sender, instance, **kwargs):
     if instance.pk:
@@ -31,8 +31,10 @@ def create_history(sender, instance, created, **kwargs):
                 History.add(sender, instance, History.TYPE_UPDATE,
                             field=field, old_value=old_value, new_value=new_value)
     else:
-        dump = serializers.serialize("json", [instance])
-        History.add(sender, instance, History.TYPE_CREATE, dump=dump)
+        track_created = MODEL_HISTORY_SETTINGS.get('track_created', False)
+        if track_created:
+            dump = serializers.serialize("json", [instance])
+            History.add(sender, instance, History.TYPE_CREATE, dump=dump)
 
 
 

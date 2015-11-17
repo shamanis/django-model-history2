@@ -1,6 +1,5 @@
 import importlib
 import inspect
-from django.conf import settings
 from django.db.models.signals import pre_save, post_save, pre_delete
 
 from .signals import check_update_fields, create_history, dump_object
@@ -52,9 +51,9 @@ def connect_signals(model, **kwargs):
     :param kwargs: `exclude` - exclude fields
     :return: None
     """
-    pre_save.connect(check_update_fields, model)
-    post_save.connect(create_history, model)
-    pre_delete.connect(dump_object, model)
+    pre_save.connect(check_update_fields, model, dispatch_uid='model_hisotry_pre_save_%s' % model.__name__)
+    post_save.connect(create_history, model, dispatch_uid='model_history_post_save_%s' % model.__name__)
+    pre_delete.connect(dump_object, model, dispatch_uid='model_history_pre_delete_%s' % model.__name__)
     exclude = kwargs.get('exclude', [])
     if exclude:
         setattr(model, 'exclude', exclude)

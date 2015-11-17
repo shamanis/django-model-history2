@@ -2,8 +2,7 @@ from django.conf import settings
 from django.contrib import admin, messages
 from django.utils.translation import ugettext_lazy as _
 from .models import History
-
-MODEL_HISTORY_SETTINGS = getattr(settings, 'MODEL_HISTORY_SETTINGS', {})
+from .settings import MODEL_HISTORY_SETTINGS
 
 
 class HisotryAdmin(admin.ModelAdmin):

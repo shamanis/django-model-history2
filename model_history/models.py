@@ -76,21 +76,21 @@ class History(models.Model):
 
         model = get_model_class(self.model)
         try:
-            object = model.objects.get(pk=self.object)
+            _object = model.objects.get(pk=self.object)
         except model.DoesNotExist:
             return None
 
-        return object
+        return _object
 
     def revert(self):
         if self.type == self.TYPE_DELETE:
             return self.restore()
         elif self.type == self.TYPE_UPDATE:
-            object = self.get_object()
-            object_field = getattr(object, self.field)
+            _object = self.get_object()
+            object_field = getattr(_object, self.field)
             if object_field == self.new_value:
-                setattr(object, self.field, self.old_value)
-                object.save()
+                setattr(_object, self.field, self.old_value)
+                _object.save()
                 self.status = self.STATUS_REVERTED
                 self.save()
                 return True

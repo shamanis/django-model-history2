@@ -46,7 +46,7 @@ Arguments for decorator model_history
 
     @model_history(exclude=['last_modified'], related=True)
 
-3. ``related_exclude`` - Exclude for related models. По-умолчанию []::
+3. ``related_exclude`` - Exclude for related models. Default: []::
 
     @model_history(exclude=['last_modified'], related=True, related_exclude=['myapp.models.Model2'])
 
@@ -99,3 +99,11 @@ Settings
             {'model': 'django.contrib.auth.models.User', 'exclude': ['last_login'], 'related': True, 'related_exclude': ['django.contrib.admin.models.LogEntry']}
         ]
     }
+
+=====
+Changelist
+=====
+1. 0.9.2
+* Add ``track_created`` in ``MODEL_HISTORY_SETTINGS`` for tracking new object created. Default: False.
+* Add ``dispatch_uid`` for connected signals.
+* Model ``History`` small refactoring.
