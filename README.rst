@@ -24,7 +24,7 @@ Dajngo Model Hisotry
 
 4. Добавляем декоратор model_hisotry к классу Вашей модели:
 
-::
+.. code-block:: python
 
     from model_history.decorators import model_history
 
