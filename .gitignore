@@ -1,0 +1,11 @@
+*~
+*.pyc
+*.log
+*.orig
+
+#IDE
+.project
+.pydevproject
+.settings
+.idea
+.idea/*
